@@ -1,7 +1,6 @@
 require 'groupme_interface'
 
 class User < ActiveRecord::Base
-  include GroupMeInterface
 
   validates :groupme_uid, presence: true, uniqueness: true
 

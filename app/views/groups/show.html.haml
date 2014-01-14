@@ -1,0 +1,18 @@
+- @messages.each do |message|
+  -#%h4
+  -#  = message['id']
+  -#%h4
+  -#  = message['created_at']
+  -#%h4
+  -#  = message['user_id']
+  %h4
+    = message['name']
+  %h4
+    = message['system']
+  -#%h4
+  -#  = message['avatar_url']
+  %h4
+    = message['text']
+  -#%h4
+  -#  = message['favorited_by']
+  -# Will need to ignore message['system'] == true messages in stats processing

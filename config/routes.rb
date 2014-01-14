@@ -6,6 +6,6 @@ GroupUs::Application.routes.draw do
   get   '/auth/failure', :to => 'sessions#failure'
   
   get   '/groups', :to => 'groups#index', as: :groups
-  get   '/groups/:group_id', :to => 'groups#show'
+  get   '/groups/:group_id', :to => 'groups#show', as: :show_group
   root  to: 'groups#index'
 end
