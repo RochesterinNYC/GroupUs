@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
     if current_user
       return true
     end
+    gflash :error => "Please login with GroupMe."
     redirect_to login_path(not_logged_in: 1)
   end
 
