@@ -1,18 +1,60 @@
-- @messages.each do |message|
-  -#%h4
-  -#  = message['id']
-  -#%h4
-  -#  = message['created_at']
-  -#%h4
-  -#  = message['user_id']
-  %h4
-    = message['name']
-  %h4
-    = message['system']
-  -#%h4
-  -#  = message['avatar_url']
-  %h4
-    = message['text']
-  -#%h4
-  -#  = message['favorited_by']
-  -# Will need to ignore message['system'] == true messages in stats processing
+%h3
+  Most Liked Message
+= render partial: 'groups/message', locals: {message: @results[:most_liked]}
+%h3
+  First Message
+= render partial: 'groups/message', locals: {message: @results[:first]}
+%h3
+  Last Message
+= render partial: 'groups/message', locals: {message: @results[:last]}
+
+%h3
+  Most frequent user
+%h4
+  = @results[:user_frequency].keys[0]
+%h3
+  Number of posts by most frequent user
+%h4
+  = @results[:user_frequency].values[0]
+
+%h3
+  Most frequent word
+%h4
+  = @results[:word_frequency].keys[0]
+%h3
+  Number of most frequent word
+%h4
+  = @results[:word_frequency].values[0]
+
+%h3
+  Most frequent time
+%h4
+  = "#{@results[:time_frequency].keys[0]} - #{(@results[:time_frequency].keys[0] + 1)}"
+%h3
+  Number of posts at most frequent time
+%h4
+  = @results[:time_frequency].values[0]
+
+%h3
+  Number messages
+%h4
+  = @results[:num_messages]
+
+%h3
+  Number attachments
+%h4
+  = @results[:num_attachments]
+
+%h3
+  Number words
+%h4
+  = @results[:num_words]
+
+%h3
+  Average number of words per message
+%h4
+  = @results[:average_words]
+
+= render partial: 'groups/list', locals: {list: @results[:user_frequency]}
+= render partial: 'groups/list', locals: {list: @results[:word_frequency]}
+= render partial: 'groups/list', locals: {list: @results[:time_frequency]}

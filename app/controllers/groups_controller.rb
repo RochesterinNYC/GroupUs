@@ -8,6 +8,7 @@ class GroupsController < ApplicationController
 
   def show
     @messages = ::GroupMeInterface.get_all_messages current_user.access_token, params[:group_id], params[:num_messages].to_i
+    @messages = @messages.sort_by{|message| message['created_at'] }
     @results = ::GroupMeAnalyzer.analyze_group @messages
   end
 

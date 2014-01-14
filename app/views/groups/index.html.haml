@@ -21,4 +21,5 @@
     = group['messages']['preview']['nickname']
   %h4
     = group['messages']['preview']['text']
+  = link_to "See all Messages", messages_path(group_id: group['id'], num_messages: group['messages']['count'])
   = link_to "Group Stats", show_group_path(group_id: group['id'], num_messages: group['messages']['count'])
