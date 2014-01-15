@@ -9,3 +9,7 @@
     = render 'layouts/header'
     .frame.text-center  
       = yield
+    .loading-frame
+      %h3.text-center
+        Loading...
+      = image_tag "loading.gif"

@@ -13,12 +13,12 @@
 %h3
   Most frequent user
 %h4
-  = format_user_names @results[:user_frequency].values[0][0]
+  = format_user_names @results[:user_frequency].values[0][0] if !@results[:user_frequency].blank?
 %h3
   Number of posts by most frequent user
-  = format_user_names @results[:user_frequency].values[0][0] 
+  = format_user_names @results[:user_frequency].values[0][0] if !@results[:user_frequency].blank?
 %h4
-  = @results[:user_frequency].values[0][1]
+  = @results[:user_frequency].values[0][1] if !@results[:user_frequency].blank?
 
 %h3
   Most frequent word
