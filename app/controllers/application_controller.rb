@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
       return true
     end
     gflash :error => "Please login with GroupMe."
-    redirect_to login_path(not_logged_in: 1)
+    redirect_to login_path
   end
 
   def format_user_names name_array

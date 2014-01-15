@@ -2,6 +2,10 @@ class SessionsController < ApplicationController
   skip_before_filter :require_user, only: [:new, :create, :destroy]
 
   def new
+    if current_user
+      gflash :success => "You are already logged in with GroupMe."
+      redirect_to login_path
+    end
   end
 
   def create
