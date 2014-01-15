@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_filter :require_user, only: [:new, :create]
+  skip_before_filter :require_user, only: [:new, :create, :destroy]
 
   def new
   end
@@ -11,12 +11,11 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  def failure
-  end
-
   def destroy
-    session[:user_id] = nil
-    flash[:notice] = "You have successfully logged out."
+    if current_user
+      flash[:notice] = "You have successfully logged out."
+    end
+    session[:user_id] = nil    
     redirect_to login_path
   end
 end
