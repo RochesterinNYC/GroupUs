@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   def new
     if current_user
       gflash :success => "You are already logged in with GroupMe."
-      redirect_to login_path
+      redirect_to groups_path
     end
   end
 
