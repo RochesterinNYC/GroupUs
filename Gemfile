@@ -6,6 +6,8 @@ gem 'pg'
 
 gem 'faraday'
 gem 'gritter'
+gem 'dalli'
+gem 'memcachier'
 
 #Rails 4 assets group deprecated
 gem 'sass-rails', '~> 4.0.0'

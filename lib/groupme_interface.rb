@@ -27,6 +27,19 @@ module GroupMeInterface
     groups
   end
 
+  def self.get_group access_token, group_id
+    groups = get_all_groups access_token
+    target_group = groups.first
+    group_index = 0
+    while target_group['id'] != group_id
+      if groups[group_index]['id'] == group_id
+        target_group = groups[group_index]
+      end
+      group_index += 1
+    end
+    target_group
+  end
+
   def self.get_all_messages access_token, group_id, num_messages
     all_found = false
     last_message_id = nil
