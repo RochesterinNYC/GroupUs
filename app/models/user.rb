@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   validates :groupme_uid, presence: true, uniqueness: true
 
-  def self.find_or_create_by_token(access_token)
+  def self.find_or_create_by_token access_token
     user_info = ::GroupMeInterface.get_user_info(access_token)
     groupme_id = user_info['id']
 
@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
       user.save
     end
     user
+  end
+
+  def get_all_groups access_token
+    ::GroupMeInterface.get_all_groups access_token
   end
 
 end

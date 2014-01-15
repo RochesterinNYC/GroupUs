@@ -14,6 +14,11 @@ class Group < ActiveRecord::Base
     @group
   end
 
+  def get_group_name access_token
+    target_group = ::GroupMeInterface.get_group access_token, self.group_id
+    target_group['name']
+  end
+
   def actual_updated_at access_token
     target_group = ::GroupMeInterface.get_group access_token, self.group_id
     target_group['updated_at']

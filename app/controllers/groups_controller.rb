@@ -1,15 +1,13 @@
-require 'groupme_interface'
-require 'groupme_analyzer'
-
 class GroupsController < ApplicationController
 
   before_filter :get_group, only: [:show, :messages]
 
   def index
-    @groups = ::GroupMeInterface.get_all_groups current_user.access_token
+    @groups = current_user.get_all_groups current_user.access_token
   end
 
   def show
+    @name = @group.get_group_name current_user.access_token
     @messages = @group.get_messages current_user.access_token, params[:num_messages].to_i
     @results = @group.get_results @messages
   end

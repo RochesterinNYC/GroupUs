@@ -1,12 +1,14 @@
+%h2
+  = @name
 %h3
   Most Liked Message
-= render partial: 'groups/message', locals: {message: @results[:most_liked]}
+= render partial: 'groups/message', locals: {message: @results[:most_liked]} if !@results[:most_liked].blank?
 %h3
   First Message
-= render partial: 'groups/message', locals: {message: @results[:first]}
+= render partial: 'groups/message', locals: {message: @results[:first]} if !@results[:first].blank?
 %h3
   Last Message
-= render partial: 'groups/message', locals: {message: @results[:last]}
+= render partial: 'groups/message', locals: {message: @results[:last]} if !@results[:last].blank?
 
 %h3
   Most frequent user
@@ -29,7 +31,7 @@
 %h3
   Most frequent time
 %h4
-  = "#{@results[:time_frequency].keys[0]} - #{(@results[:time_frequency].keys[0] + 1)}"
+  = "#{@results[:time_frequency].keys[0]} - #{(@results[:time_frequency].keys[0] + 1)}" if !@results[:time_frequency].blank?
 %h3
   Number of posts at most frequent time
 %h4

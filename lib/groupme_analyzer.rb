@@ -60,7 +60,7 @@ module GroupMeAnalyzer
 
     end
 
-    average_words_message = num_words / messages.count
+    average_words_message = num_words == 0 ? 0 : num_words / messages.count 
     user_freq = Hash[user_freq.sort_by {|_key, value| -value}]
     word_freq = Hash[word_freq.sort_by {|_key, value| -value}]
     time_freq = Hash[time_freq.sort_by {|_key, value| -value}]
