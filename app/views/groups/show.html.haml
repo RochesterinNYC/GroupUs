@@ -4,20 +4,21 @@
   Most Liked Message
 = render partial: 'groups/message', locals: {message: @results[:most_liked]} if !@results[:most_liked].blank?
 %h3
-  First Message
+  Latest Message
 = render partial: 'groups/message', locals: {message: @results[:first]} if !@results[:first].blank?
 %h3
-  Last Message
+  Earliest Message
 = render partial: 'groups/message', locals: {message: @results[:last]} if !@results[:last].blank?
 
 %h3
   Most frequent user
 %h4
-  = @results[:user_frequency].keys[0]
+  = format_user_names @results[:user_frequency].values[0][0]
 %h3
   Number of posts by most frequent user
+  = format_user_names @results[:user_frequency].values[0][0] 
 %h4
-  = @results[:user_frequency].values[0]
+  = @results[:user_frequency].values[0][1]
 
 %h3
   Most frequent word
@@ -57,6 +58,6 @@
 %h4
   = @results[:average_words]
 
-= render partial: 'groups/list', locals: {list: @results[:user_frequency]}
+= render partial: 'groups/user_list', locals: {list: @results[:user_frequency]}
 = render partial: 'groups/list', locals: {list: @results[:word_frequency]}
 = render partial: 'groups/list', locals: {list: @results[:time_frequency]}

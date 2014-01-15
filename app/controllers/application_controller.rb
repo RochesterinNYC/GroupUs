@@ -17,4 +17,14 @@ class ApplicationController < ActionController::Base
     redirect_to login_path(not_logged_in: 1)
   end
 
+  def format_user_names name_array
+    names = ""
+    last_name = name_array.last
+    name_array.each do |name|
+      name == last_name ? names += name : names += name + "/"
+    end
+    names
+  end
+  helper_method :format_user_names
+
 end

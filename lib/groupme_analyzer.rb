@@ -33,10 +33,11 @@ module GroupMeAnalyzer
         most_liked_message = message
       end
       
-      if user_freq[message['name']].nil?
-        user_freq[message['name']] = 1
+      if user_freq[message['user_id']].nil?
+        user_freq[message['user_id']] = [[message['name']], 1]
       else
-        user_freq[message['name']] += 1
+        user_freq[message['user_id']][0].push(message['name']) if message['user_id'][0].include? message['name']
+        user_freq[message['user_id']][1] += 1
       end
 
       #Time.hour rounds down so message that returns 17 would be 17-18 (5-6 PM)
@@ -61,7 +62,7 @@ module GroupMeAnalyzer
     end
 
     average_words_message = num_words == 0 ? 0 : num_words / messages.count 
-    user_freq = Hash[user_freq.sort_by {|_key, value| -value}]
+    user_freq = Hash[user_freq.sort_by {|_key, value| -value[1]}]
     word_freq = Hash[word_freq.sort_by {|_key, value| -value}]
     time_freq = Hash[time_freq.sort_by {|_key, value| -value}]
 
