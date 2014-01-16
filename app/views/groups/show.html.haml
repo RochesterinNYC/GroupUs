@@ -1,60 +1,57 @@
-%br
-%br
-= link_to "Back to Groups", groups_path
-
+.back-link.text-left
+  %h3
+    = link_to "Back to Groups", groups_path
 %h2
   = @name
-  %br
-  Group Stats
 - if !@results[:first].blank?
-  %h3
-    Most Liked Message
-  = render partial: 'groups/message', locals: {message: @results[:most_liked]}
-  .message-favorites
-    = "Liked by #{@results[:most_liked]['favorited_by'].count} people"    
-  %h3
-    Latest Message
-  = render partial: 'groups/message', locals: {message: @results[:first]} 
-  %h3
-    Earliest Message
-  = render partial: 'groups/message', locals: {message: @results[:last]}
-  %h3
-    Most frequent user
-  %h4
-    = "#{format_user_names @results[:user_frequency].values[0][0]} with #{@results[:user_frequency].values[0][1]} messages"
-  %h3
-    Most frequent word
-  %h4
-    = "\"#{@results[:word_frequency].keys[0]}\" with #{@results[:word_frequency].values[0]} instances"
-  %h3
-    Most frequent message posting time
-  %h4
-    = "#{format_time @results[:time_frequency].keys[0]} with #{@results[:time_frequency].values[0]} messages"
-  %h3
-    Number messages
-  %h4
-    = @results[:num_messages]
-  %h3
-    Number attachments
-  %h4
-    = @results[:num_attachments]
-  %h3
-    Total number of words
-  %h4
-    = @results[:num_words]
-  %h3
-    Average number of words per message
-  %h4
-    = @results[:average_words]
-  %h3
-    User Message Frequency
-  = render partial: 'groups/user_list', locals: {list: @results[:user_frequency]}
-  %h3
-    Word Frequency
-  = render partial: 'groups/list', locals: {list: @results[:word_frequency]}
-  %h3
-    Time of Message Post Frequency
-  = render partial: 'groups/time_list', locals: {list: @results[:time_frequency]}
+  .stats-totals.container
+    %h3
+      Message/Word Stats
+    %h4
+      = "This group has a total of #{@results[:num_messages]} user messages between #{@results[:user_frequency].count} users."
+      %br
+      = "There's a total of #{@results[:num_words]} words and an average #{@results[:average_words]} words per message."
+  .stats-mosts.container
+    %h3
+      Most Liked Message
+    = render partial: 'groups/message', locals: {message: @results[:most_liked]}
+    .message-favorites
+      = "Liked by #{@results[:most_liked]['favorited_by'].count} people"    
+    %h3
+      Latest Message
+    = render partial: 'groups/message', locals: {message: @results[:first]} 
+    %h3
+      Earliest Message
+    = render partial: 'groups/message', locals: {message: @results[:last]}
+  .stats-frequencies.container
+    .stats-frequency.container
+      %h4
+        Most frequent user
+      = "#{format_user_names @results[:user_frequency].values[0][0]} with #{@results[:user_frequency].values[0][1]} messages"
+    .stats-frequency.container
+      %h4
+        Most frequent word
+      = "\"#{@results[:word_frequency].keys[0]}\" with #{@results[:word_frequency].values[0]} instances"
+    .stats-frequency.container
+      %h4
+        Most frequent posting time
+      = "#{format_time @results[:time_frequency].keys[0]} with #{@results[:time_frequency].values[0]} messages"
+  .stats-frequencies.container
+    .stats-frequency.container
+      %h4
+        User Message Frequency
+      User = # Messages
+      = render partial: 'groups/user_list', locals: {list: @results[:user_frequency]}
+    .stats-frequency.container
+      %h4
+        Word Frequency
+      Word = # Instances
+      = render partial: 'groups/list', locals: {list: @results[:word_frequency]}
+    .stats-frequency.container
+      %h4
+        Time Sent Frequency
+      Time = # Messages
+      = render partial: 'groups/time_list', locals: {list: @results[:time_frequency]}
 - else
   %h3
     No messages posted in this group yet.
