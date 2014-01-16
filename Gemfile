@@ -6,7 +6,7 @@ gem 'pg'
 
 gem 'faraday'
 gem 'gritter'
-gem 'dalli'
+gem 'dalli', '~> 1.1.5'
 gem 'memcachier'
 
 #Rails 4 assets group deprecated
