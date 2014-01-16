@@ -8,6 +8,7 @@ gem 'faraday'
 gem 'gritter'
 gem 'dalli', '~> 1.1.5'
 gem 'memcachier'
+gem 'google-analytics-rails'
 
 #Rails 4 assets group deprecated
 gem 'sass-rails', '~> 4.0.0'
