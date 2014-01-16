@@ -1,5 +1,5 @@
 .header {
-  background-color: #23aef6;
+  background-color: #00AFF0;
   display: block;
   width: 100%;
   height: 60px;
@@ -25,6 +25,63 @@
     height: 150px;
     overflow: auto;
   }
+  .group {
+    float: left;
+    width: 400px;
+    border: solid;
+    border-color: #00AFF0;
+    color: #666666;
+    background-color: #CCFFFF;
+    border-radius: 15px;
+    padding: 0 0 0 0;
+    margin: 10px 10px 10px 10px;
+    .group-image {
+      float: left;
+      margin: 22px 0px 0 22px;
+      width: 60px;
+      height: 60px;
+      img {
+        border-radius: 10px;
+        width: 60px;
+        height: 60px;
+      }
+    }
+    .group-details{
+      float: left;
+      width: 300px;
+      padding: 5px 0 5px 0;
+      .row {
+        .group-num-members {
+          display: inline-block;
+        }
+        .group-num-messages {
+          display: inline-block;
+        }
+      }
+      .group-name {
+        h4 {
+          font-weight: 900;
+        }
+      }
+      a { 
+        background-color: #00AFF0;
+        color: white;
+        padding: 2px 5px 2px 5px;
+        border-radius: 5px;
+        text-decoration: none;
+        &:hover {
+          background-color: white;
+          color: #00AFF0;
+        }
+        &.see-messages { 
+          margin-right: 25px;
+        }
+        &.see-stats {
+          margin-left: 25px;
+        }
+      }
+    }
+  }
 }
 
 .loading-frame {
@@ -44,4 +101,9 @@
   h3 {
     color: white;
   }
+}
+
+.intro {
+  width: 600px;
+  padding: 20px 0 0 0;
 }

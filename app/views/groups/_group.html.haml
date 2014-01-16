@@ -1,0 +1,23 @@
+.group.container
+  .group-image
+    - if group['image_url'].blank?
+      = image_tag "https://app.groupme.com/images/default-avatar.jpg"
+    - else
+      = image_tag group['image_url']
+  .group-details.text-center
+    .group-name
+      %h4
+        = group['name']
+    .group-phone
+      = group['phone_number']
+    .row.text-center
+      .group-num-members
+        \# of Members:
+        = group['members'].count
+      %span{style: "color: grey; font-weight: 900;"}
+        |
+      .group-num-messages
+        \# of Messages:
+        = group['messages']['count']
+    = link_to "See Messages", messages_path(group_id: group['id'], num_messages: group['messages']['count']), class: "loader-needed see-messages"
+    = link_to "Group Stats", show_group_path(group_id: group['id'], num_messages: group['messages']['count']), class: "loader-needed see-stats"

@@ -1,28 +1,7 @@
+%br
+%br
 - @groups.each do |group|
-  %h4
-    = group['name']
-  %h4
-    = group['phone_number']
-  %h4
-    = group['type']
-  %h4
-    = group['description']
-  %h4
-    = group['image_url']
-  %h4
-    = group['created_at']
-  %h4
-    = group['updated_at']
-  %h4
-    = group['members'].count
-  %h4
-    = group['messages']['count']
-  %h4
-    = group['messages']['preview']['nickname']
-  %h4
-    = group['messages']['preview']['text']
-  = link_to "See all Messages", messages_path(group_id: group['id'], num_messages: group['messages']['count']), class: "loader-needed"
-  = link_to "Group Stats", show_group_path(group_id: group['id'], num_messages: group['messages']['count']), class: "loader-needed"
+  = render partial: 'groups/group', locals: {group: group}
 :javascript
   window.onpageshow = function(){
     $('loading-frame').hide();
