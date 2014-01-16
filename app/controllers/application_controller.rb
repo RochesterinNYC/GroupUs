@@ -27,4 +27,19 @@ class ApplicationController < ActionController::Base
   end
   helper_method :format_user_names
 
+  def format_time time
+    time_string = ""
+    if time == 0
+      time_string = "12 AM - 1 AM"
+    elsif time >= 1 && time < 12
+      time_string = "#{time} AM - #{time + 1} AM"
+    elsif time == 12
+      time_string = "12 PM - 1 PM"
+    elsif time >= 13
+      time_string = "#{time - 12} PM - #{time - 11} PM"
+    end
+    time_string
+  end
+  helper_method :format_time
+
 end

@@ -1,9 +1,6 @@
 .group.container
   .group-image
-    - if group['image_url'].blank?
-      = image_tag "https://app.groupme.com/images/default-avatar.jpg"
-    - else
-      = image_tag group['image_url']
+    = image_tag(group['image_url'].blank? ? "https://app.groupme.com/images/default-avatar.jpg" : group['image_url'])
   .group-details.text-center
     .group-name
       %h4

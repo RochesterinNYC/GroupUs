@@ -1,9 +1,8 @@
-%h5
-  = message['name']
-%h5
-  = image_tag(message['avatar_url']) if message['avatar_url'] != "null"
-%h5
-  = message['text']
-%h5
-  Favorited by this many people: 
-  = message['favorited_by'].count
+.message.container
+  .message-image
+    = image_tag(message['avatar_url'] == "null" || message['avatar_url'].blank? ? "https://app.groupme.com/images/default-avatar.jpg" : message['avatar_url'])
+  .message-details
+    .sender-name
+      = message['name']
+    .message-text
+      = message['text']
