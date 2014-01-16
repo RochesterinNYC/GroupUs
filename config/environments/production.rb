@@ -43,6 +43,7 @@ GroupUs::Application.configure do
   # config.force_ssl = true
 
   # Set to :debug to see everything in the log.
+  console.logger = Logger.new(STDOUT)
   config.log_level = :info
 
   # Prepend all log lines with the following tags.
