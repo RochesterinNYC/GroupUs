@@ -30,8 +30,8 @@ class Group < ActiveRecord::Base
 
   #deletes the cache for the group because it is outdated
   def delete_cache access_token
-    Rails.cache.delete('messages#{self.group_id}')
-    Rails.cache.delete('results#{self.group_id}')
+    Rails.cache.delete("messages#{self.group_id}")
+    Rails.cache.delete("results#{self.group_id}")
     self.synchronize_actual_updated actual_updated_at(access_token)
   end 
 
