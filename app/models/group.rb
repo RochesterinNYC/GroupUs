@@ -31,7 +31,9 @@ class Group < ActiveRecord::Base
   #deletes the cache for the group because it is outdated
   def delete_cache access_token
     Rails.cache.delete("messages#{self.group_id}")
+    puts "messages#{self.group_id} cache deleted~"
     Rails.cache.delete("results#{self.group_id}")
+    puts "results#{self.group_id} cache deleted~"
     self.synchronize_actual_updated actual_updated_at(access_token)
   end 
 
@@ -41,11 +43,11 @@ class Group < ActiveRecord::Base
   end
 
   def get_messages access_token, num_messages
-    @messages = Rails.cache.fetch("messages#{self.group_id}") { ::GroupMeInterface.get_all_messages access_token, self.group_id, num_messages }
+    @messages = Rails.cache.fetch("messages#{self.group_id}") { puts "messages#{self.group_id} written to cache~"; ::GroupMeInterface.get_all_messages access_token, self.group_id, num_messages }
   end
 
   def get_results messages
-    @results = Rails.cache.fetch("results#{self.group_id}") { ::GroupMeAnalyzer.analyze_group messages }
+    @results = Rails.cache.fetch("results#{self.group_id}") { puts "results#{self.group_id} written to cache~"; ::GroupMeAnalyzer.analyze_group messages }
   end
 
 end
