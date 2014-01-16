@@ -19,7 +19,7 @@ class GroupsController < ApplicationController
   protected
   def get_group
     @group = Group.find_or_create_by_group_id current_user.access_token, params[:group_id]
-    @group.delete_cache if !@group.cache_up_to_date @group.actual_updated_at(current_user.access_token)
+    @group.delete_cache(current_user.access_token) if !@group.cache_up_to_date @group.actual_updated_at(current_user.access_token)
   end
 
 end
