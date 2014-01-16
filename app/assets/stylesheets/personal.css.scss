@@ -9,22 +9,61 @@
     color: white;
     float: left;
     margin: 15px 0 0 10px;
+    a {
+      color: white;
+      text-decoration: none;
+      &:hover {
+        color: #CCFFFF;
+      }
+    }
   }
   .btn {
     float: right;
     margin: 10px 10 0 0px;
-    color: #23aef6;
+    color: #00AFF0;
     background-color: white;
+    &:hover {
+      text-decoration: none;
+      background-color: #CCFFFF;
+      color: #00AFF0;
+    }
   }
 }
 
 .frame {
-  .list {
-    display: block;
-    width: 300px;
-    border: solid;
-    height: 150px;
-    overflow: auto;
+  .login-button {
+    background-color: #00AFF0;
+    color: white;
+    &:hover {
+      background-color: #CCFFFF;
+      color: #00AFF0;
+    }
+  }
+  .back-link {
+    width: 194px;
+    position: fixed;
+    left: 0;
+    top: 78px;
+    padding: 5px 10px 5px 10px;
+    margin: 0 0 0 1px;
+    border-radius: 12px;
+    background-color: #00AFF0;
+    &:hover {
+      background-color: #CCFFFF;
+      a {
+        color: #00AFF0;
+        text-decoration: none;
+      }
+    }
+    h3 {
+      margin: 0 0 0 0;
+    }
+    a {
+      color: white;
+    }
+  }
+  h2 {
+    font-weight: 900;
   }
   .message {
     width: 600px;
@@ -36,7 +75,8 @@
       float: left;
       margin: 10px 15px 10px 10px;
       width: 60px;
-      height: 60px;
+      height: inherit;
+      position: relative;
       img {
         border-radius: 10px;
         width: 60px;
@@ -45,11 +85,11 @@
     }
     .message-details {
       text-align: left;
-      margin: 8px 10px 0 0;
+      margin: 8px 10px 10px 0;
       color: white;
+      width: 500px;
+      float: left;
       text-shadow: 1px 0 0 black, -1px 0 0 black, 0 1px 0 black, 0 -1px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
-
-
       font-weight: 900;
       .sender-name {
       }
@@ -115,6 +155,29 @@
       }
     }
   }
+  .stats-frequencies {
+    width: 820px;
+    padding: 5px 20px 20px 20px;
+    border-radius: 15px;
+    margin: 10px auto 20px auto;
+    background-color: #00AFF0;
+    .stats-frequency {
+      float: left;
+      width: 240px;
+      padding: 0 0 0 0;
+      margin: 0 10px 0px 10px;
+      .list {
+        background-color: #CCFFFF;
+        border-radius: 15px;
+        padding: 5px 0 5px 0;
+        margin-top: 10px;
+        display: block;
+        width: 240px;
+        height: 150px;
+        overflow: auto;
+      }
+    }
+  }
 }
 
 .loading-frame {
@@ -137,6 +200,12 @@
 }
 
 .intro {
-  width: 600px;
-  padding: 20px 0 0 0;
+  width: 400px;
+  margin: 50px auto 20px auto;
+  background-color: #00AFF0;
+  border-radius: 15px;
+  padding: 10px 10px 10px 10px;
+  span {
+    color: white;
+  }
 }

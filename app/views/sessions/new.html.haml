@@ -1,11 +1,11 @@
 %br
 %br
-.btn.btn-primary
-  = link_to "Login through GroupMe", auth_path, style: "color:white;"
-%br
-%br
+= link_to "Login through GroupMe", auth_path, class: "login-button btn"
+
 .container.intro
-  Welcome to GroupUs, a simple web app that presents information about your GroupMe account's groups based off the messages posted in them.
+  Welcome to
+  %span GroupUs    
+  \: an easy-to-use web app that presents information about your GroupMe account's groups based off the messages posted in them.
   %br
   %br
   Currently Under Construction:
@@ -15,4 +15,5 @@
   \- NLP Analysis of Word Frequencies
   %br
   \- Add stoplist to filter pronouns and etc.
+%br
 = image_tag "groupmepowered.png"

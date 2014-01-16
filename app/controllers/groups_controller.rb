@@ -13,6 +13,7 @@ class GroupsController < ApplicationController
   end
 
   def messages
+    @name = @group.get_group_name current_user.access_token
     @messages = @group.get_messages current_user.access_token, params[:num_messages].to_i
   end
 

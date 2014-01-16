@@ -16,5 +16,5 @@
       .group-num-messages
         \# of Messages:
         = group['messages']['count']
-    = link_to "See Messages", messages_path(group_id: group['id'], num_messages: group['messages']['count']), class: "loader-needed see-messages"
-    = link_to "Group Stats", show_group_path(group_id: group['id'], num_messages: group['messages']['count']), class: "loader-needed see-stats"
+    = link_to "See Messages", messages_path(group_id: group['id'], num_messages: group['messages']['count']), class: "see-messages", onclick: "LoadingHandler.showLoader()"
+    = link_to "Group Stats", show_group_path(group_id: group['id'], num_messages: group['messages']['count']), class: "see-stats", onclick: "LoadingHandler.showLoader()"

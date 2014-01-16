@@ -3,7 +3,6 @@
 - @groups.each do |group|
   = render partial: 'groups/group', locals: {group: group}
 :javascript
-  window.onpageshow = function(){
+  $(document).ready(function(){ 
     $('loading-frame').hide();
-    LoadingHandler.initializeLoader();
-  };
+  });

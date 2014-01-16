@@ -1,6 +1,8 @@
+.back-link.container
+  %h3
+    = link_to "Back to Groups", groups_path
+%h2
+  = @name
 %br
-%br
-= link_to "Back to Groups", groups_path
-
 - @messages.each do |message|
   = render partial: 'groups/message', locals: {message: message}

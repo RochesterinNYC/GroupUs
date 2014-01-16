@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     user = User.find_or_create_by_token(params[:access_token])
     session[:user_id] = user.id
     gflash :success => "Logged in as #{current_user.name}"
-    redirect_to root_path
+    redirect_to groups_path
   end
 
   def destroy
