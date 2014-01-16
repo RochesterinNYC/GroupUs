@@ -1,8 +1,8 @@
 GroupUs::Application.routes.draw do
   get   '/login', :to => 'sessions#new', as: :login
   get   '/logout' => 'sessions#destroy', as: :logout
-  get   "/auth", to: redirect("https://api.groupme.com/oauth/authorize?client_id=#{ENV['GROUPME_API_KEY']}"), as: :auth
-  get   '/auth/:provider/callback' => 'sessions#create'
+  get   "/auth", to: redirect("http://api.groupme.com/oauth/authorize?client_id=#{ENV['GROUPME_API_KEY']}"), as: :auth
+  get   '/auth/callback' => 'sessions#create'
   get   '/auth/failure', :to => 'sessions#failure'
   
   get   '/groups', :to => 'groups#index', as: :groups
