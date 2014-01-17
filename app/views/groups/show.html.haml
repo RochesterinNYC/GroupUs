@@ -3,7 +3,7 @@
     = link_to "Back to Groups", groups_path
 %h2
   = @name
-- if !@results[:first].blank?
+- if @results[:num_words] != 0
   .stats-totals.container
     %h3
       Message/Word Stats
@@ -16,7 +16,8 @@
       Most Liked Message
     = render partial: 'groups/message', locals: {message: @results[:most_liked]}
     .message-favorites
-      = "Liked by #{@results[:most_liked]['favorited_by'].count} people"    
+      = "Liked by #{@results[:most_liked]['favorited_by'].count} "
+      = @results[:most_liked]['favorited_by'].count == 1 ? "person" : "people"
     %h3
       Latest Message
     = render partial: 'groups/message', locals: {message: @results[:first]} 
@@ -54,4 +55,5 @@
       = render partial: 'groups/time_list', locals: {list: @results[:time_frequency]}
 - else
   %h3
-    No messages posted in this group yet.
+    %br
+    No messages posted in this group by users yet.
