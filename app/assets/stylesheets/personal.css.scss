@@ -40,11 +40,20 @@
       color: #00AFF0;
     }
   }
-  .back-link {
+  .back-button {
+    top: 78px;
+  }
+  .flip-button {
+    top: 130px;
+    h3 {
+      padding: 4px 0px 4px 0px;
+      font-size: 18px;
+    }
+  }
+  .fixed-button {
     width: 194px;
     position: fixed;
     left: 0;
-    top: 78px;
     padding: 5px 10px 5px 10px;
     margin: 0 0 0 1px;
     border-radius: 12px;

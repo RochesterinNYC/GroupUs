@@ -1,6 +1,9 @@
-.back-link.container
+.fixed-button.back-button.container
   %h3
     = link_to "Back to Groups", groups_path
+.fixed-button.flip-button.container
+  %h3
+    = link_to "Flip Message Order", messages_path(group_id: params[:group_id], num_messages: params[:num_messages], ascending: @flip), onclick: "LoadingHandler.showLoader()"
 %h2
   = @name
 %br

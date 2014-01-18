@@ -14,7 +14,12 @@ class GroupsController < ApplicationController
 
   def messages
     @name = @group.get_group_name current_user.access_token
-    @messages = @group.get_messages current_user.access_token, params[:num_messages].to_i
+    if params[:ascending] == 'true'
+      @messages = @group.get_messages(current_user.access_token, params[:num_messages].to_i).reverse!
+    else
+      @messages = @group.get_messages current_user.access_token, params[:num_messages].to_i
+    end
+    @flip = !(params[:ascending] == 'true')
   end
 
   protected
