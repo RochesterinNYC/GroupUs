@@ -28,31 +28,35 @@
     .stats-frequency.container
       %h4
         Most frequent user
-      = "#{format_user_names @results[:user_frequency].values[0][0]} with #{@results[:user_frequency].values[0][1]} messages"
+      = "#{format_user_names @users.values[0][0]} with #{@users.values[0][1]} messages"
     .stats-frequency.container
       %h4
         Most frequent word
-      = "\"#{@results[:word_frequency].keys[0]}\" with #{@results[:word_frequency].values[0]} instances"
+      = "\"#{@words.keys[0]}\" with #{@words.values[0]} instances"
     .stats-frequency.container
       %h4
         Most frequent posting time
-      = "#{format_time @results[:time_frequency].keys[0]} with #{@results[:time_frequency].values[0]} messages"
+      = "#{format_time @times.keys[0]} with #{@times.values[0]} messages"
   .stats-frequencies.container
+    -# Graph of Messages by month
+    -# Graph of Messages by person
+    -# Graph of Messages by time
+    -# Sort out words from stoplist
     .stats-frequency.container
       %h4
         User Message Frequency
       User = # Messages
-      = render partial: 'groups/user_list', locals: {list: @results[:user_frequency]}
+      = render partial: 'groups/user_list', locals: {list: @users}
     .stats-frequency.container
       %h4
         Word Frequency
       Word = # Instances
-      = render partial: 'groups/list', locals: {list: @results[:word_frequency]}
+      = render partial: 'groups/list', locals: {list: @words}
     .stats-frequency.container
       %h4
         Time Sent Frequency
       Time = # Messages
-      = render partial: 'groups/time_list', locals: {list: @results[:time_frequency]}
+      = render partial: 'groups/time_list', locals: {list: @times}
 - else
   %h3
     %br

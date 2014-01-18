@@ -10,6 +10,10 @@ class GroupsController < ApplicationController
     @name = @group.get_group_name current_user.access_token
     @messages = @group.get_messages current_user.access_token, params[:num_messages].to_i
     @results = @group.get_results @messages
+    @words = @results[:word_frequency]
+    @users = @results[:user_frequency]
+    @times = @results[:time_frequency]
+    #@months = 
   end
 
   def messages

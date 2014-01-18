@@ -52,7 +52,8 @@ module GroupMeAnalyzer
       text = message['text'].downcase.gsub(/[^a-z\s]/, '')
       text.split.each do |word|
         num_words += 1
-        if word_freq[word].nil?
+        next if GroupUs::Application::STOPLIST.include? word
+        if word_freq[word].nil? 
           word_freq[word] = 1
         else
           word_freq[word] += 1
