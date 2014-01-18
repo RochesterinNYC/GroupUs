@@ -1,0 +1,59 @@
+:javascript
+  $(function () { 
+    $('#time-histogram').highcharts({
+      chart: {
+        type: 'column',
+        alignTicks: true
+      },
+      title: {
+        text: 'Messages by Time sent'
+      },
+      xAxis: {
+        categories: #{format_times(time_frequencies.keys)},
+        labels: {
+          rotation: -45,
+          align: 'right',
+          style: {
+            fontSize: '13px',
+            fontFamily: 'Verdana, sans-serif'
+          }
+        }
+      },
+      yAxis: {
+        min: 0,
+        max: #{time_frequencies.values.max + time_frequencies.values.max / 5},
+        minTickInterval: 10,
+        title: {
+          text: 'Messages sent'
+        }
+      },
+      tooltip: {
+        pointFormat: 'Messages sent: <b>{point.y} </b>',
+      },
+      series: [{
+        name: 'Message Frequencies',
+        data: #{time_frequencies.values},
+        dataLabels: {
+          enabled: true,
+          rotation: -90,
+          color: '#FFFFFF',
+          align: 'right',
+          x: 4,
+          y: 10,
+          style: {
+            fontSize: '13px',
+            fontFamily: 'Verdana, sans-serif',
+            textShadow: '0 0 3px black'
+          }
+        }
+      }],
+      plotOptions: {
+        column: {
+          pointPadding: 0,
+          borderWidth: 0,
+          groupPadding: 0,
+          shadow: false
+        }
+      }
+    });
+  });

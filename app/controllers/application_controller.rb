@@ -42,4 +42,13 @@ class ApplicationController < ActionController::Base
   end
   helper_method :format_time
 
+  def format_times times
+    time_array = Array.new
+    times.each do |time|
+      time_array << format_time(time)
+    end
+    time_array
+  end
+  helper_method :format_times
+
 end

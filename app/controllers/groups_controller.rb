@@ -12,7 +12,9 @@ class GroupsController < ApplicationController
     @results = @group.get_results @messages
     @words = @results[:word_frequency]
     @users = @results[:user_frequency]
-    @times = @results[:time_frequency]
+    @most_time = @results[:time_frequency].keys[0]
+    @most_time_value = @results[:time_frequency].values[0]
+    @times = Hash[@results[:time_frequency].sort_by {|key, value| key}] 
     #@months = 
   end
 
