@@ -37,7 +37,7 @@ Additionally, graphs that portray the distribution of messages across both timef
 
 A word cloud portraying the most used words is available, where the weight of words is the number of times that it's been used in a group. The word cloud is created using the jQCloud plugin. For condensation and sizing of the cloud, only words that have been used more than once are present in the cloud.
 
-![GroupUs Wordcloud](http://s3.amazonaws.com/jamesrwen/app/public/projects/groupus/groupuscloud_thumbnail.png?1390109165 "GroupUs Wordcloud")
+![GroupUs Wordcloud](http://s3.amazonaws.com/jamesrwen/app/public/projects/groupus/groupuscloud_original.png?1390109165 "GroupUs Wordcloud")
 
 ---
 ###Implementation Features
