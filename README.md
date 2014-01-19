@@ -16,9 +16,9 @@ Once logged in, all your groups will be automatically presented client-side thro
 
 ####Messages:
 
-GroupUs allows a user to view all the messages of a conversation on a single page (very useful for operations like searching). Currently, the messages are presented in reverse chronological order with the latest message at the top and earliest message at the bottom. Functionality involving user selection of different ways to order the messages is pending.
+GroupUs allows a user to view all the messages of a conversation on a single page (very useful for operations like searching). The messages are initially presented in reverse chronological order with the latest message at the top and earliest message at the bottom. However, the Flip Message Order button allows the user to reverse the chronological order of the messages.
 <br/><br/>
-![GroupUs Messages](http://s3.amazonaws.com/jamesrwen/app/public/projects/groupus/groupusmessages_original.png?1389938408 "GroupUs Messages")
+![GroupUs Messages](http://s3.amazonaws.com/jamesrwen/app/public/projects/groupus/groupusmessages_original.png?1390108219 "GroupUs Messages")
 
 ####Statistics/Information:
 The following are presented:
@@ -27,11 +27,17 @@ The following are presented:
 * Message posted first chronologically
 * User that posts most frequently and how many messages he/she has sent
 * Word that is posted most frequently and how many times it has been used
-* Timeframe messages are posted most frequently at and how many messages sent during that timeframe
+* Timeframe that messages are posted most frequently at and how many messages sent during that timeframe
 <br/><br/>
 ![GroupUs Stats](http://s3.amazonaws.com/jamesrwen/app/public/projects/groupus/groupusstats_original.png?1389938409 "GroupUs Stats")
 
-![GroupUs Frequencies](http://s3.amazonaws.com/jamesrwen/app/public/projects/groupus/groupusfrequencies_original.png?1389938410 "GroupUs Frequencies")
+Additionally, graphs that portray the distribution of messages across both timeframes sent and users are present. The graphs are created using the Highcharts API. Please note that the number of people shown in the user distribution graph is capped off at 40 people.
+
+![GroupUs Graphs](http://s3.amazonaws.com/jamesrwen/app/public/projects/groupus/groupusgraphs_original.png?1390108220 "GroupUs Graphs")
+
+A word cloud portraying the most used words is available, where the weight of words is the number of times that it's been used in a group. The word cloud is created using the jQCloud plugin. For condensation and sizing of the cloud, only words that have been used more than once are present in the cloud.
+
+![GroupUs Wordcloud](http://s3.amazonaws.com/jamesrwen/app/public/projects/groupus/groupuscloud_thumbnail.png?1390109165 "GroupUs Wordcloud")
 
 ---
 ###Implementation Features
@@ -54,8 +60,5 @@ To help alleviate the resulting loading time issue, GroupUs uses a manually impl
 
 Hence, in speed trials, for a group that contains approximately 4000 messages, it takes an average user about 4-5 seconds to access the Full Conversation or Group Stats for a group. However, after this initial load, any attempts to access the Full Conversation or Group Stats for that same group take < 0.5 second and this is primarily due to rendering (especially for Full Conversations). The cache and these enhanced load times are maintained even with logouts and logins, but expire in 3 days as per GroupMe's [API Terms of Use](https://docs.google.com/viewer?url=https%3A%2F%2Fdev.groupme.com%2FGroupMe_API_License_Agreement.pdf).
 
----
-###Future Additions
-- Word Clouds
-- NLP Analysis of Word Frequencies
-- Add stoplist to filter pronouns and etc.
+####Stoplist:
+A stoplist containing pronouns, conjunctions, prepositions, etc. is used to screen the word distribution. The stoplist used for GroupUs is the union set of these two stoplists: [Ted Pedersen](http://www.d.umn.edu/~tpederse/Group01/WordNet/wordnet-stoplist.html) and [Journal of Machine Learning](http://jmlr.org/papers/volume5/lewis04a/a11-smart-stop-list/english.stop). All word total counts and average number of words per message are calculated using the full number of words in messages. However, the word cloud and most frequent word metrics utilize the post-stoplist-screened word distribution.
