@@ -15,7 +15,6 @@ class GroupsController < ApplicationController
     @most_time = @results[:time_frequency].keys[0]
     @most_time_value = @results[:time_frequency].values[0]
     @times = Hash[@results[:time_frequency].sort_by {|key, value| key}] 
-    #@months = 
   end
 
   def messages

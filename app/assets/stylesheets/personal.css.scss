@@ -187,6 +187,45 @@
         overflow: auto;
       }
     }
+    .graph {
+      margin-top: 15px;
+      width: 100%; 
+      height: 400px;
+    }
+  }
+  .cloud-label {
+    color: #00AFF0;
+    padding-top: 20px;
+  }
+  .word-frequencies {
+    width: 400px;
+    height: 350px;
+    padding: 5px 20px 20px 20px;
+    border-radius: 15px;
+    margin: 10px auto 20px auto;
+    text-align: center;
+    background-color: #00AFF0;
+    .list {
+      background-color: #CCFFFF;
+      border-radius: 15px;
+      padding: 5px 0 5px 0;
+      margin-top: 10px;
+      display: block;
+      width: 360px;
+      height: 260px;
+      overflow: auto;
+    }
+  }
+  .stats-cloud {
+    width: 800px;
+    height: 600px;
+    padding: 5px 20px 20px 20px;
+    border-radius: 15px;
+    margin: 10px auto 20px auto;
+    #wordcloud {
+      width: 100%; 
+      height: 100%;
+    }
   }
 }
 

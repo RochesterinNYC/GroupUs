@@ -52,7 +52,7 @@ class ApplicationController < ActionController::Base
   helper_method :format_times
 
   def get_cutoff users, cutoff_index
-    users.count <= cutoff_index ? 0 : users[cutoff_index][1]
+    users.count <= cutoff_index ? 0 : users.values[cutoff_index][1]
   end
   helper_method :get_cutoff
 

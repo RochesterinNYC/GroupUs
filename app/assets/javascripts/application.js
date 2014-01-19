@@ -16,4 +16,5 @@
 //= require gritter
 //= require highcharts
 //= require highcharts/highcharts-more
+//= require jqcloud
 //= require_tree .

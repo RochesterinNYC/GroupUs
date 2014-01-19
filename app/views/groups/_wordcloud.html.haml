@@ -1,0 +1,14 @@
+:javascript
+  var word_count = #{words.count};
+  var word_array = [];
+  var words = #{words};
+  var weights = #{weights};
+  for(var i = 0; i < word_count; i++){
+    if(weights[i] > 1){
+      word_array.push({text: words[i], weight: weights[i]});
+    }
+  }
+  $(function() {
+    var window_width = $('#wordcloud').width();
+    $("#wordcloud").jQCloud(word_array, {width: window_width, height: 580, removeOverflowing: true});
+  });

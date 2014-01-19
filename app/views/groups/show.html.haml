@@ -38,16 +38,22 @@
         Most frequent posting time
       = "#{format_time @most_time} with #{@most_time_value} messages"
   .stats-frequencies.container
-    #time-histogram{style: "width:100%; height:400px;"}
+    #time-histogram.graph
     = render partial: 'groups/time_histogram', locals: {time_frequencies: @times}
   .stats-frequencies.container
-    #user-histogram{style: "width:100%; height:400px;"}
+    #user-histogram.graph
     = render partial: 'groups/user_histogram', locals: {user_frequencies: @users}
-  -# Graph of Messages by person = Histogram? or bargraph
-  -# Graph of Messages by month = Line graph
-  -# Graph of Messages by time = Highstock advanced graph?
-  -# Wordcloud of words
-
+  .word-frequencies.container
+    .stats-frequency
+      %h4
+        Word Frequency
+      Word = # Instances
+      = render partial: 'groups/list', locals: {list: @words}
+  %h3.cloud-label
+    Word Cloud
+  .stats-cloud.container
+    #wordcloud
+    = render partial: 'groups/wordcloud', locals: {words: @words.keys, weights: @words.values}
 - else
   %h3
     %br

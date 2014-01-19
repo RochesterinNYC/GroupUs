@@ -6,16 +6,20 @@
         alignTicks: true
       },
       title: {
-        text: 'Messages by User'
+        text: 'Messages by User',
+        style: {
+          fontSize: '16px',
+          fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif'
+        }
       },
       xAxis: {
-        categories: #{cutoff = get_cutoff(user_frequencies, 50); user_frequencies.values.collect{|x| format_user_names(x[0]) if x[1] >= cutoff }.compact },
+        categories: #{cutoff = get_cutoff(user_frequencies, 40); user_frequencies.values.collect{|user| format_user_names(user[0]) if user[1] >= cutoff }.compact },
         labels: {
           rotation: -45,
           align: 'right',
           style: {
             fontSize: '13px',
-            fontFamily: 'Verdana, sans-serif'
+            fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif'
           }
         }
       },
@@ -34,13 +38,13 @@
       },
       series: [{
         name: 'Message Frequencies',
-        data: #{cutoff = get_cutoff(user_frequencies, 50); user_frequencies.values.collect{|x| x[1] if x[1] >= cutoff }.compact},
+        data: #{cutoff = get_cutoff(user_frequencies, 40); user_frequencies.values.collect{|user| user[1] if user[1] >= cutoff }.compact},
         dataLabels: {
           enabled: true,
           color: 'black',
           style: {
             fontSize: '13px',
-            fontFamily: 'Verdana, sans-serif'
+            fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif'
           }
         }
       }],
