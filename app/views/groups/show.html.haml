@@ -1,4 +1,4 @@
-.back-link.text-left
+.fixed-button.back-button.text-left
   %h3
     = link_to "Back to Groups", groups_path
 %h2
@@ -38,14 +38,15 @@
         Most frequent posting time
       = "#{format_time @most_time} with #{@most_time_value} messages"
   .stats-frequencies.container
-    -# Graph of Messages by time = Histogram?
-    -# Graph of Messages by month = Line graph
-    -# Graph of Messages by person = Histogram? or bargraph
-    -# Graph of Messages by time = Highstock advanced graph?
-    -# Wordcloud of words
     #time-histogram{style: "width:100%; height:400px;"}
     = render partial: 'groups/time_histogram', locals: {time_frequencies: @times}
-
+  .stats-frequencies.container
+    #user-histogram{style: "width:100%; height:400px;"}
+    = render partial: 'groups/user_histogram', locals: {user_frequencies: @users}
+  -# Graph of Messages by person = Histogram? or bargraph
+  -# Graph of Messages by month = Line graph
+  -# Graph of Messages by time = Highstock advanced graph?
+  -# Wordcloud of words
 
 - else
   %h3

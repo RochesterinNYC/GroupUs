@@ -1,15 +1,15 @@
 :javascript
   $(function () { 
-    $('#time-histogram').highcharts({
+    $('#user-histogram').highcharts({
       chart: {
         type: 'column',
         alignTicks: true
       },
       title: {
-        text: 'Messages by Time sent'
+        text: 'Messages by User'
       },
       xAxis: {
-        categories: #{format_times(time_frequencies.keys)},
+        categories: #{cutoff = get_cutoff(user_frequencies, 50); user_frequencies.values.collect{|x| format_user_names(x[0]) if x[1] >= cutoff }.compact },
         labels: {
           rotation: -45,
           align: 'right',
@@ -21,7 +21,6 @@
       },
       yAxis: {
         min: 0,
-        max: #{time_frequencies.values.max + time_frequencies.values.max / 5},
         minTickInterval: 10,
         title: {
           text: '# Messages sent'
@@ -35,7 +34,7 @@
       },
       series: [{
         name: 'Message Frequencies',
-        data: #{time_frequencies.values},
+        data: #{cutoff = get_cutoff(user_frequencies, 50); user_frequencies.values.collect{|x| x[1] if x[1] >= cutoff }.compact},
         dataLabels: {
           enabled: true,
           color: 'black',
