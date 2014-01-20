@@ -45,7 +45,7 @@ module GroupMeInterface
     last_message_id = nil
     messages = Array.new
     until messages.count == num_messages do
-      messages.concat get_messages(access_token, group_id, last_message_id, num_messages, messages.count)
+      messages.concat get_messages(access_token, group_id, last_message_id)
       last_message_id = messages.last['id']
     end
     messages
@@ -57,8 +57,13 @@ module GroupMeInterface
     groups['response']
   end
 
-  def self.get_messages access_token, group_id, last_message_id, num_messages, count
-    response = @@conn.get "groups/#{group_id}/messages", token: access_token, before_id: last_message_id
+  def self.get_messages access_token, group_id, last_message_id 
+    if last_message_id.blank?
+      response = @@conn.get "groups/#{group_id}/messages", token: access_token
+    else
+      response = @@conn.get "groups/#{group_id}/messages", token: access_token, before_id: last_message_id
+    end
+
     messages = JSON.parse response.body
     messages['response']['messages']
   end
