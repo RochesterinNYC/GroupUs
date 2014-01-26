@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_filter :require_user, only: [:new, :create, :destroy]
+  skip_before_filter :require_user, only: [:new, :create]
 
   def new
     if current_user
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
 
   def destroy
     if current_user
-      flash[:notice] = "You have successfully logged out."
+      gflash :success => "You have successfully logged out."
     end
     session[:user_id] = nil    
     redirect_to login_path
