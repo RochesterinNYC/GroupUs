@@ -8,17 +8,17 @@ GroupUs is an application that lets [GroupMe](http://groupme.com) users view sta
 
 GroupUs allows for easy login and authentication through [GroupMe oauth](https://dev.groupme.com/tutorials/oauth). No GroupUs account creation or sign in is needed as long as a user has a GroupMe account.
 
-![GroupUs Login](http://s3.amazonaws.com/jamesrwen/app/public/uploads/groupuslogin_original.png?1390771506 "GroupUs Login")
+![GroupUs Login](http://s3.amazonaws.com/jamesrwen/var/www/jamesrwen/public/uploads/groupuslogin_original.png?1391394734 "GroupUs Login")
 
 Once logged in, all your groups will be automatically presented client-side through API calls and no details regarding your groups are stored in a database other than group ID and last update time (for caching purposes). The GroupMe API does not allow developers/users to access information about a group unless the access token passed is for a user that belongs to the group. Hence, with a group ID but no access token, developers/users cannot query for information about the group.
 <br/><br/>
-![GroupUs Index](http://s3.amazonaws.com/jamesrwen/app/public/uploads/groupusindex_original.png?1390771498 "GroupUs Index")
+![GroupUs Index](http://s3.amazonaws.com/jamesrwen/var/www/jamesrwen/public/uploads/groupusindex_original.png?1391394726 "GroupUs Index")
 
 ####Messages:
 
 GroupUs allows a user to view all the messages of a conversation on a single page (very useful for operations like searching). The messages are initially presented in reverse chronological order with the latest message at the top and earliest message at the bottom. However, the Flip Message Order button allows the user to reverse the chronological order of the messages.
 <br/><br/>
-![GroupUs Messages](http://s3.amazonaws.com/jamesrwen/app/public/uploads/groupusmessages_original.png?1390771484 "GroupUs Messages")
+![GroupUs Messages](http://s3.amazonaws.com/jamesrwen/var/www/jamesrwen/public/uploads/groupusmessages_original.png?1391394631 "GroupUs Messages")
 
 ####Statistics/Information:
 The following are presented:
@@ -29,15 +29,15 @@ The following are presented:
 * Word that is posted most frequently and how many times it has been used
 * Timeframe that messages are posted most frequently at and how many messages sent during that timeframe
 <br/><br/>
-![GroupUs Stats](http://s3.amazonaws.com/jamesrwen/app/public/uploads/groupusstats_original.png?1390771514 "GroupUs Stats")
+![GroupUs Stats](http://s3.amazonaws.com/jamesrwen/var/www/jamesrwen/public/uploads/groupusstats_original.png?1391394741 "GroupUs Stats")
 
 Additionally, graphs that portray the distribution of messages across both timeframes sent and users are present. The graphs are created using the Highcharts API. Please note that the number of people shown in the user distribution graph is capped off at 40 people.
 
-![GroupUs Graphs](http://s3.amazonaws.com/jamesrwen/app/public/uploads/groupusgraphs_original.png?1390771475 "GroupUs Graphs")
+![GroupUs Graphs](http://s3.amazonaws.com/jamesrwen/var/www/jamesrwen/public/uploads/groupusgraphs_original.png?1391394625 "GroupUs Graphs")
 
 A word cloud portraying the most used words is available, where the weight of words is the number of times that it's been used in a group. The word cloud is created using the jQCloud plugin. For condensation and sizing of the cloud, only words that have been used more than once are present in the cloud.
 
-![GroupUs Wordcloud](http://s3.amazonaws.com/jamesrwen/app/public/uploads/groupuscloud_original.png?1390771461 "GroupUs Wordcloud")
+![GroupUs Wordcloud](http://s3.amazonaws.com/jamesrwen/var/www/jamesrwen/public/uploads/groupuscloud_original.png?1391394617 "GroupUs Wordcloud")
 
 ---
 ###Implementation Features
