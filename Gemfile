@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.1.0'
+ruby '2.2.4'
 
-gem 'rails', '4.0.2'
+gem 'rails'
 gem 'pg'
 
 gem 'faraday'
@@ -31,13 +31,10 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'guard-rspec'
   gem 'spork-rails', '4.0.0'
-  gem 'guard-spork', '1.5.0'
   gem 'childprocess', '0.3.6'
   gem 'pry-rails'
   gem 'pry-remote'
-  gem 'pry-debugger'
   gem 'machinist'
 end
 

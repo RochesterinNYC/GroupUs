@@ -16,12 +16,12 @@ ActiveRecord::Schema.define(version: 20140115004109) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "groups", force: true do |t|
+  create_table "groups", force: :cascade do |t|
     t.string  "group_id"
     t.integer "groupme_updated"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "groupme_uid"
     t.string   "phone_number"
     t.string   "image_url"
